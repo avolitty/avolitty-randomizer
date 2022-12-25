@@ -11,7 +11,7 @@ int main() {
 	}
 
 	printf("%i", _1[0]);
-	// ..
+	/* .. */
 	return 0;
 }
 
