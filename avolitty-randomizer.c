@@ -26,7 +26,7 @@ void AvolittyRandomizer(short *a, char *b) {
 		c[f] = (short) i[h--];
 	}
 
-	f = ((c[0] & 3) * 10000) + (c[0] & 31);
+	f = ((c[0] & 3) * 10000) + (c[1] & 15) + (c[2] & 15);
 	h = 0;
 
 	if (f < 30000) {
