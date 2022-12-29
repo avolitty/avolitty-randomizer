@@ -1,7 +1,7 @@
-## About
+## Avolitty Randomizer
 
 #### Author
-[William Parsons](avolitty@gmail.com)
+William Parsons <[avolitty@gmail.com](avolitty@gmail.com)>
 
 #### Description
 Create random integers using ANSI C89 standard I/O with a fast and unique randomization algorithm.
@@ -12,7 +12,7 @@ Create random integers using ANSI C89 standard I/O with a fast and unique random
 - Fast randomization speed with optimization level 3
 - Memory-safe with well-defined behavior
 - Minified code
-- No implementation-dependent random byte seeding required
+- No implementation-dependent noise seeding required
 - No timestamp seeding required
 - Returns a random 2-bit signed short
 
