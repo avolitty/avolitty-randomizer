@@ -1,47 +1,46 @@
 void AvolittyRandomizer(short *a, char *b) {
 	short c[6] = {0, 0, 0, 0, 0, 0};
 	short d[4] = {2, 7, 3, 7};
-	short e = 10000;
+	short e[4] = {1, 10, 100, 1000};
 	short f = 6;
-	short g = 1;
-	short h = 0;
-	char i[4098];
+	short g = 4;
+	short h = 1;
+	short i = 0;
+	char j[4098];
 	*b = 0;
-	i[4097] = -1;
-	tmpnam(i);
+	j[4097] = -1;
+	tmpnam(j);
 
-	if (i[4097] != -1) {
+	if (j[4097] != -1) {
 		*a = 0;
 		*b = 1;
 		return;
 	}
 
-	while (i[h] != 0) {
-		h++;
+	while (j[i] != 0) {
+		i++;
 	}
 
-	h--;
+	i--;
 
 	while (f-- != 0) {
-		c[f] = (short) i[h--];
+		c[f] = (short) j[i--];
 	}
 
 	f = ((c[0] & 3) * 10000) + (c[1] & 15) + (c[2] & 15);
-	h = 0;
+	i = 0;
 
 	if (f < 30000) {
-		while (e != 1) {
-			e /= 10;
-			f += ((c[g++] & 7) + (c[h++] & 2)) * e;
+		while (g-- != 0) {
+			f += ((c[h++] & 7) + (c[i++] & 2)) * e[g];
 		}
 	} else {
-		while (e != 1) {
-			e /= 10;
-			f += (c[g++] & d[h++]) * e;
+		while (g-- != 0) {
+			f += (c[h++] & d[i++]) * e[g];
 		}
 	}
 
-	if ((c[g] & 1) == 0) {
+	if ((c[h] & 1) == 0) {
 		f = ~f;
 	}
 
