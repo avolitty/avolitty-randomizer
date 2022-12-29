@@ -35,10 +35,10 @@ Navigate to the cloned repository's root directory with `cd`.
 cd avolitty-randomization
 ```
 
-This example uses `test/main.c` to generate random integers with the `AvolittyRandomization()` function from `avolitty-randomizer.c`.
+This example uses `test/main.c` to generate random integers with the `AvolittyRandomization()` function from `src/avolitty-randomizer.c`.
 
 ``` console
-gcc -O3 -o avolitty-randomizer -std=c89 avolitty-randomizer.c test/main.c
+gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
 ```
 
 The compiler gives a warning that the use of `tmpnam()` is dangerous because it assumes the usage is always for directory creation instead of a randomization seed value.
@@ -68,7 +68,7 @@ This example modifies `test/main.c` to create a random `signed long` by multiply
 
 ``` c
 #include <stdio.h>
-#include "avolitty-randomizer.h"
+#include "../src/avolitty-randomizer.h"
 
 int main() {
 	long a = 0L;
@@ -79,7 +79,7 @@ int main() {
 	AvolittyRandomizer(&b, &d);
 	AvolittyRandomizer(&c, &e);
 	a = (long) b * c;
-	printf("%l", a);
+	printf("%li", a);
 	return 0;
 }
 ```

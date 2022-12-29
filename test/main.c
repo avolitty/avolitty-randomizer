@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../avolitty-randomizer.h"
+#include "../src/avolitty-randomizer.h"
 
 int main() {
 	short a = 0;
