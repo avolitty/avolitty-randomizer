@@ -1,36 +1,50 @@
-void AvolittyRandomizer(short *a) {
-	short b[6] = {0, 0, 0, 0, 0, 0};
-	short c[4] = {2, 7, 3, 7};
-	short d = 10000;
-	short e = 15;
-	short f = 5;
+void AvolittyRandomizer(short *a, char *b) {
+	short c[6] = {0, 0, 0, 0, 0, 0};
+	short d[4] = {2, 7, 3, 7};
+	short e = 10000;
+	short f = 6;
 	short g = 1;
-	char h[16];
-	tmpnam(h);
+	short h = 0;
+	char i[4097];
+	*b = 0;
+	i[4096] = -1;
+	tmpnam(i);
 
-	while (e-- != 9) {
-		b[f--] = (short) h[e];
+	if (i[4096] != -1) {
+		*a = 0;
+		*b = 1;
+		return;
 	}
 
-	e = ((b[0] & 3) * 10000) + (b[0] & 31);
-	f = 0;
+	while (i[h] != 0) {
+		h++;
+	}
 
-	if (e < 30000) {
-		while (d != 1) {
-			d /= 10;
-			e += ((b[g++] & 7) + (b[f++] & 2)) * d;
+	h--;
+
+	while (f-- != 0) {
+		c[f] = (short) i[h--];
+	}
+
+	f = ((c[0] & 3) * 10000) + (c[0] & 31);
+	h = 0;
+
+	if (f < 30000) {
+		while (e != 1) {
+			e /= 10;
+			f += ((c[g++] & 7) + (c[h++] & 2)) * e;
 		}
 	} else {
-		while (d != 1) {
-			d /= 10;
-			e += (b[g++] & c[f++]) * d;
+		while (e != 1) {
+			e /= 10;
+			f += (c[g++] & d[h++]) * e;
 		}
 	}
 
-	if ((b[g] & 1) == 0) {
-		e = ~e;
+	if ((c[g] & 1) == 0) {
+		f = ~f;
 	}
 
-	*a = e;
+	*a = f;
 	return;
 }

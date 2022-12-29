@@ -3,7 +3,8 @@
 
 int main() {
 	short a = 0;
-	AvolittyRandomizer(&a);
+	char b = 0;
+	AvolittyRandomizer(&a, &b);
 	printf("%i", a);
 	return 0;
 }
