@@ -5,12 +5,12 @@ void AvolittyRandomizer(short *a, char *b) {
 	short f = 6;
 	short g = 1;
 	short h = 0;
-	char i[4097];
+	char i[4098];
 	*b = 0;
-	i[4096] = -1;
+	i[4097] = -1;
 	tmpnam(i);
 
-	if (i[4096] != -1) {
+	if (i[4097] != -1) {
 		*a = 0;
 		*b = 1;
 		return;
