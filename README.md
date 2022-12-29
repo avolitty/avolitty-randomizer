@@ -35,36 +35,55 @@ Navigate to the cloned repository's root directory with `cd`.
 cd avolitty-randomizer
 ```
 
-This example uses `test/main.c` to generate random integers with the `AvolittyRandomizer()` function from `src/avolitty-randomizer.c`.
+The following example uses code from `test/main.c` to generate random integers with the `AvolittyRandomizer()` function from `src/avolitty-randomizer.c`.
 
-``` console
-gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
+``` c
+#include <stdio.h>
+#include "../src/avolitty-randomizer.h"
+
+int main() {
+	short a = 0;
+	char b = 0;
+	AvolittyRandomizer(&a, &b);
+	printf("%i", a);
+	return 0;
+}
 ```
 
-The compiler gives a warning that the use of `tmpnam()` is dangerous because it assumes the usage is always for directory creation instead of a randomization seed value.
-
-The first function parameter is a `signed short` integer variable that contains the function's randomized integer output.
+The first function parameter `a` is a `signed short` integer variable that contains the function's randomized integer output.
 
 The default value should be `0` and the function defines it as a random integer between `-32768` and `32767`.
 
-The second function parameter is a `signed char` integer variable that contains the function's error status.
+The second function parameter `b` is a `signed char` integer variable that contains the function's error status.
 
 The default value should be `0` and the function defines it as a positive integer with one of the following error codes.
 
 - `0` Success
 - `1` Temporary directory name character length exceeds 4096
 
-``` console
-Input: ./avolitty-randomizer
-Output: 1338
+An executable binary for testing can be compiled with either `clang` or `gcc`.
 
-Input: ./avolitty-randomizer
-Output: -8080
+``` console
+gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
+```
+
+The output from the previous command is an exacutable binary named `avolitty-randomizer`.
+
+The compiler gives a warning that the use of `tmpnam()` is dangerous because it assumes the usage is always for directory creation instead of a randomization seed value.
+
+The binary output from the command line is a random integer between `-32768` and `32767`.
+
+``` console
+./avolitty-randomizer
+# 1338
+
+./avolitty-randomizer
+# -8080
 ```
 
 Random integers smaller or larger than `-32768` can be created with memory-safe casting and arithmetic expressions for restriction to a desired number range.
 
-This example modifies `test/main.c` to create a random `signed long` by multiplying and casting two output values from `AvolittyRandomizer()`.
+The following example modifies code from `test/main.c` to create a random `signed long` by multiplying and casting two output values from `AvolittyRandomizer()`.
 
 ``` c
 #include <stdio.h>
