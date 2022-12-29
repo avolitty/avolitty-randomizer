@@ -1,17 +1,38 @@
 #include <stdio.h>
 
 int main() {
-	char _0[16];
-	int _1[6] = {0, 0, 0, 0, 0, 0};
-	int _2 = 15;
-	tmpnam(_0);
+	short a[6] = {0, 0, 0, 0, 0, 0};
+	short b[4] = {2, 7, 3, 7};
+	short c = 10000;
+	short d = 15;
+	short e = 5;
+	short f = 1;
+	char g[16];
+	tmpnam(g);
 
-	while (_2-- != 9) {
-		_1[_2 - 9] = _0[_2];
+	while (d-- != 9) {
+		a[e--] = (short) g[d];
 	}
 
-	printf("%i", _1[0]);
-	/* .. */
+	d = ((a[0] & 3) * 10000) + (a[0] & 31);
+	e = 0;
+
+	if (d < 30000) {
+		while (c != 1) {
+			c /= 10;
+			d += ((a[f++] & 7) + (a[e++] & 2)) * c;
+		}
+	} else {
+		while (c != 1) {
+			c /= 10;
+			d += (a[f++] & b[e++]) * c;
+		}
+	}
+
+	if ((f & 1) == 0) {
+		d = ~d;
+	}
+
+	printf("%i", d);
 	return 0;
 }
-
