@@ -20,22 +20,22 @@ Create random integers using ANSI C89 standard I/O with a fast and unique random
 [Patreon](https://www.patreon.com/avolitty)
 
 #### License
-[MIT](https://github.com/avolitty/avolitty-randomization/blob/main/LICENSE)
+[MIT](https://github.com/avolitty/avolitty-randomizer/blob/main/LICENSE)
 
 #### Usage
 Clone the repository in the current directory with `git`.
 
 ``` console
-git clone https://github.com/avolitty/avolitty-randomization.git
+git clone https://github.com/avolitty/avolitty-randomizer.git
 ```
 
 Navigate to the cloned repository's root directory with `cd`.
 
 ``` console
-cd avolitty-randomization
+cd avolitty-randomizer
 ```
 
-This example uses `test/main.c` to generate random integers with the `AvolittyRandomization()` function from `src/avolitty-randomizer.c`.
+This example uses `test/main.c` to generate random integers with the `AvolittyRandomizer()` function from `src/avolitty-randomizer.c`.
 
 ``` console
 gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
