@@ -50,13 +50,13 @@ int main() {
 }
 ```
 
-The first function parameter `a` is a `signed short` integer variable that contains the function's randomized integer output.
+The first argument variable `a` is a `signed short` integer.
 
-The default value should be `0` and the function defines it as a random integer between `-32768` and `32767`.
+The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
 
-The second function parameter `b` is a `signed char` integer variable that contains the function's error status.
+The second argument variable `b` is a `signed char` integer.
 
-The default value should be `0` and the function defines it as a positive integer with one of the following error codes.
+The default value should be `0` and `AvolittyRandomizer()` defines it as an integer with one of the following error codes.
 
 - `0` Success
 - `1` Temporary directory name character length exceeds 4096
@@ -67,11 +67,13 @@ An executable binary for testing can be compiled with either `clang` or `gcc`.
 gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
 ```
 
-The output from the previous command is an exacutable binary named `avolitty-randomizer`.
+`-O3` compiles with maximum optimization and `-std=c89` compiles with C89 standards.
 
 The compiler gives a warning that the use of `tmpnam()` is dangerous because it assumes the usage is always for directory creation instead of a randomization seed value.
 
-The binary output from the command line is a random integer between `-32768` and `32767`.
+It outputs an executable binary file named `avolitty-randomizer` in the current directory.
+
+The output from executing `./avolitty-randomizer` is a random integer between `-32768` and `32767`.
 
 ``` console
 ./avolitty-randomizer
