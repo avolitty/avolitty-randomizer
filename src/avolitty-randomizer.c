@@ -10,7 +10,7 @@ void AvolittyRandomizer(signed short int *a, signed char *b) {
 	signed char *k;
 	*b = 0;
 	j[4097] = -1;
-	k = j;
+	k = (signed char*) j;
 	tmpnam(k);
 
 	if (j[4097] != -1) {
