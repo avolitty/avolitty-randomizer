@@ -1,7 +1,7 @@
 void AvolittyRandomizer(short *a, char *b) {
 	short c[6] = {0, 0, 0, 0, 0, 0};
-	short d[4] = {2, 7, 3, 7};
-	short e[4] = {1, 10, 100, 1000};
+	const short d[4] = {2, 7, 3, 7};
+	const short e[4] = {1, 10, 100, 1000};
 	short f = 6;
 	short g = 4;
 	short h = 1;
