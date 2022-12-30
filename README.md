@@ -42,15 +42,15 @@ The following example uses code from `test/main.c` to generate random integers w
 #include "../src/avolitty-randomizer.h"
 
 int main() {
-	short a = 0;
-	char b = 0;
+	signed short int a = 0;
+	signed char b = 0;
 	AvolittyRandomizer(&a, &b);
 	printf("%i", a);
 	return 0;
 }
 ```
 
-The first argument variable `a` is a `signed short` integer.
+The first argument variable `a` is a `signed short int` integer.
 
 The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
 
@@ -85,22 +85,22 @@ The output from executing `./avolitty-randomizer` is a random integer between `-
 
 Random integers smaller or larger than `-32768` can be created with memory-safe casting and arithmetic expressions for restriction to a desired number range.
 
-The following example modifies code from `test/main.c` to create a random `signed long` by multiplying and casting two output values from `AvolittyRandomizer()`.
+The following example modifies code from `test/main.c` to create a random `signed long int` by multiplying and casting two output values from `AvolittyRandomizer()`.
 
 ``` c
 #include <stdio.h>
 #include "../src/avolitty-randomizer.h"
 
 int main() {
-	long a = 0L;
-	short b = 0;
-	short c = 0;
-	char d = 0;
-	char e = 0;
+	signed long int a = 0L;
+	signed short int b = 0;
+	signed short int c = 0;
+	signed char d = 0;
+	signed char e = 0;
 	AvolittyRandomizer(&b, &d);
 	AvolittyRandomizer(&c, &e);
-	a = (long) b * c;
-	printf("%li", a);
+	a = (signed long int) b * (signed long int) c;
+	printf("%ld", a);
 	return 0;
 }
 ```
