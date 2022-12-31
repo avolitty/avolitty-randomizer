@@ -1,53 +1,51 @@
 void AvolittyRandomizer(signed short int *a, signed char *b) {
 	signed short int c[6];
-	const signed short int d[4] = {2, 7, 3, 7};
-	const signed short int e[4] = {1, 10, 100, 1000};
-	signed short int f = 4107;
-	signed short int g = 4;
-	signed short int h = 1;
-	signed short int i = 0;
-	signed char j[4107];
-	signed char *k;
+	signed short int d = 4107;
+	signed short int e = 0;
+	signed char f[4107];
+	signed char *g;
 	*b = 0;
-	f--;
-	j[f] = -1;
-	k = (signed char*) j;
-	tmpnam(k);
+	d--;
+	f[d] = -1;
+	g = (signed char*) f;
+	tmpnam(g);
 
-	if (j[f] != -1) {
+	if (f[d] != -1) {
 		*a = 0;
 		*b = 1;
 		return;
 	}
 
-	while (j[i] != 0) {
-		i++;
+	while (f[e] != 0) {
+		e++;
 	}
 
-	f = 6;
-	i--;
+	d = 6;
+	e--;
 
-	while (f-- != 0) {
-		c[f] = (signed short int) j[i--];
+	while (d-- != 0) {
+		c[d] = (signed short int) f[e--];
 	}
 
-	f = ((c[0] & 3) * 10000) + (c[1] & 15) + (c[2] & 15);
-	i = 0;
+	d = ((c[0] & 3) * 10000) + (c[1] & 15) + (c[2] & 15);
+	e = 0;
 
-	if (f < 30000) {
-		while (g-- != 0) {
-			f += ((c[h++] & 7) + (c[i++] & 2)) * e[g];
-		}
+	if (d < 30000) {
+		d += ((c[1] & 2) + (c[0] & 7)) * 1000;
+		d += ((c[2] & 2) + (c[1] & 7)) * 100;
+		d += ((c[3] & 2) + (c[2] & 7)) * 10;
+		d += (c[4] & 2) + (c[3] & 7);
 	} else {
-		while (g-- != 0) {
-			f += (c[h++] & d[i++]) * e[g];
-		}
+		d += (c[1] & 2) * 1000;
+		d += (c[2] & 7) * 100;
+		d += (c[3] & 3) * 10;
+		d += c[4] & 7;
 	}
 
-	if ((c[h] & 1) == 0) {
-		f = ~f;
+	if ((c[5] & 1) == 0) {
+		d = ~d;
 	}
 
-	*a = f;
+	*a = d;
 	return;
 }

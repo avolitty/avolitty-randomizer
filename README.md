@@ -6,8 +6,10 @@ William Parsons <[avolitty@gmail.com](avolitty@gmail.com)>
 #### Description
 Create random integers using ANSI C89 standard I/O with a fast and unique randomization algorithm.
 
+- Allocates memory with stack instead of heap
 - ANSI C89 compilation option -std=c89 supported
 - Compiles with Clang or GCC
+- Conforms to strict ISO C with -pedantic-errors enabled
 - Entropy derived from the tmpnam() function in stdio.h
 - Fast randomization speed with optimization level 3
 - Memory-safe with well-defined behavior
@@ -105,9 +107,9 @@ int main() {
 }
 ```
 
-For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on lines `5` and `9` in `src/avolitty-randomizer.c`.
+For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on lines `3` and `5` in `src/avolitty-randomizer.c`.
 
 ```c
-signed short int f = 4107; /* Line 5 */
-signed char j[4107]; /* Line 9 */
+signed short int d = 4107; /* Line 3 */
+signed char f[4107]; /* Line 5 */
 ```
