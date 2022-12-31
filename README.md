@@ -37,7 +37,7 @@ Navigate to the cloned repository's root directory with `cd`.
 cd avolitty-randomizer
 ```
 
-The following example uses code from `test/main.c` to generate random integers with the `AvolittyRandomizer()` function from `src/avolitty-randomizer.c`.
+The following example uses code from [test/main.c](https://github.com/avolitty/avolitty-randomizer/blob/main/test/main.c) to generate random integers with the `AvolittyRandomizer()` function from `src/avolitty-randomizer.c`.
 
 ``` c
 #include <stdio.h>
@@ -87,7 +87,7 @@ The output from executing `./avolitty-randomizer` is a random integer between `-
 
 Random integers smaller or larger than `-32768` can be created with memory-safe casting and arithmetic expressions for restriction to a desired number range.
 
-The following example modifies code from `test/main.c` to create a random `signed long int` by multiplying and casting two output values from `AvolittyRandomizer()`.
+The following example modifies code from [test/main.c](https://github.com/avolitty/avolitty-randomizer/blob/main/test/main.c) to create a random `signed long int` by multiplying and casting two output values from `AvolittyRandomizer()`.
 
 ``` c
 #include <stdio.h>
@@ -107,9 +107,11 @@ int main() {
 }
 ```
 
-For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on lines `3` and `5` in `src/avolitty-randomizer.c`.
+For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on [line 3](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L3) and [line 5](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L5) in [src/avolitty-randomizer.c](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c).
 
-```c
+``` c
 signed short int d = 4107; /* Line 3 */
+```
+``` c
 signed char f[4107]; /* Line 5 */
 ```

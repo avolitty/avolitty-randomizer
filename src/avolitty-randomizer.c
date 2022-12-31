@@ -3,11 +3,11 @@ void AvolittyRandomizer(signed short int *a, signed char *b) {
 	signed short int d = 4107;
 	signed short int e = 0;
 	signed char f[4107];
-	signed char *g;
+	char *g;
 	*b = 0;
 	d--;
 	f[d] = -1;
-	g = (signed char*) f;
+	g = (char*) f;
 	tmpnam(g);
 
 	if (f[d] != -1) {
