@@ -2,18 +2,19 @@ void AvolittyRandomizer(signed short int *a, signed char *b) {
 	signed short int c[6];
 	const signed short int d[4] = {2, 7, 3, 7};
 	const signed short int e[4] = {1, 10, 100, 1000};
-	signed short int f = 6;
+	signed short int f = 4107;
 	signed short int g = 4;
 	signed short int h = 1;
 	signed short int i = 0;
-	signed char j[4098];
+	signed char j[4107];
 	signed char *k;
 	*b = 0;
-	j[4097] = -1;
+	f--;
+	j[f] = -1;
 	k = (signed char*) j;
 	tmpnam(k);
 
-	if (j[4097] != -1) {
+	if (j[f] != -1) {
 		*a = 0;
 		*b = 1;
 		return;
@@ -23,6 +24,7 @@ void AvolittyRandomizer(signed short int *a, signed char *b) {
 		i++;
 	}
 
+	f = 6;
 	i--;
 
 	while (f-- != 0) {

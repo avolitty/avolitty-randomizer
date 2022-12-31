@@ -59,12 +59,12 @@ The second argument variable `b` is a `signed char` integer.
 The default value should be `0` and `AvolittyRandomizer()` defines it as an integer with one of the following error codes.
 
 - `0` Success
-- `1` Temporary directory name character length exceeds 4096
+- `1` Temporary directory name character length exceeds stack allocation
 
 An executable binary for testing can be compiled with either `clang` or `gcc`.
 
 ``` console
-gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
+gcc -O3 -o avolitty-randomizer -pedantic-errors -std=c89 src/avolitty-randomizer.c test/main.c
 ```
 
 `-O3` compiles with maximum optimization and `-std=c89` compiles with C89 standards.
@@ -103,4 +103,11 @@ int main() {
 	printf("%ld", a);
 	return 0;
 }
+```
+
+For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on lines `5` and `9` in `src/avolitty-randomizer.c`.
+
+```c
+signed short int f = 4107; /* Line 5 */
+signed char j[4107]; /* Line 9 */
 ```
