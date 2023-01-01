@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void AvolittyRandomizer(signed short int *a, signed char *b) {
 	signed short int c[6];
 	signed short int d = 4107;
