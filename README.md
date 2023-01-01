@@ -45,8 +45,10 @@ The following example uses code from [test/main.c](https://github.com/avolitty/a
 
 int main() {
 	signed short int a = 0;
-	signed char b = 0;
-	AvolittyRandomizer(&a, &b);
+	signed short int *b = &a;
+	signed char c = 0;
+	signed char *d = &c;
+	AvolittyRandomizer(b, d);
 	printf("%d", a);
 	return 0;
 }
@@ -56,9 +58,13 @@ The first argument variable `a` is a `signed short int` integer.
 
 The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
 
-The second argument variable `b` is a `signed char` integer.
+The variable `b` is a pointer passed to `AvolittyRandomizer()` to modify the value of `a`.
+
+The second argument variable `c` is a `signed char` integer.
 
 The default value should be `0` and `AvolittyRandomizer()` defines it as an integer with one of the following error codes.
+
+The variable `d` is a pointer passed to `AvolittyRandomizer()` to modify the value of `c`.
 
 - `0` Success
 - `1` Temporary directory name character length exceeds stack allocation
@@ -96,12 +102,16 @@ The following example modifies code from [test/main.c](https://github.com/avolit
 int main() {
 	signed long int a = 0L;
 	signed short int b = 0;
-	signed short int c = 0;
-	signed char d = 0;
-	signed char e = 0;
-	AvolittyRandomizer(&b, &d);
-	AvolittyRandomizer(&c, &e);
-	a = (signed long int) b * (signed long int) c;
+	signed short int *c = &b;
+	signed short int d = 0;
+	signed short int *e = &d;
+	signed char f = 0;
+	signed char *g = &f;
+	signed char h = 0;
+	signed char *i = &h;
+	AvolittyRandomizer(c, g);
+	AvolittyRandomizer(e, i);
+	a = (signed long int) c * (signed long int) e;
 	printf("%ld", a);
 	return 0;
 }
