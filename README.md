@@ -117,11 +117,11 @@ int main() {
 }
 ```
 
-For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on [line 3](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L3) and [line 5](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L5) from [src/avolitty-randomizer.c](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c).
+For additional optimization, stack memory allocation can be adjusted to the length of `L_tmpnam` on [line 5](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L5) and [line 7](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c#L7) from [src/avolitty-randomizer.c](https://github.com/avolitty/avolitty-randomizer/blob/main/src/avolitty-randomizer.c).
 
 ``` c
-signed short int d = 4107; /* Line 3 */
+signed short int d = 4107; /* Line 5 */
 ```
 ``` c
-signed char f[4107]; /* Line 5 */
+signed char f[4107]; /* Line 7 */
 ```
