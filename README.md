@@ -54,17 +54,17 @@ int main() {
 }
 ```
 
-The first argument variable `a` is a `signed short int` integer.
+The first argument variable `b` is a pointer to modify the value of the variable `a`.
+
+The variable `a` is a `signed short int` defined as the random integer result.
 
 The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
 
-The variable `b` is a pointer passed to `AvolittyRandomizer()` to modify the value of `a`.
+The second argument variable `d` is a pointer to modify the value of the variable `c`.
 
-The second argument variable `c` is a `signed char` integer.
+The variable `c` is a `signed char` defined as the error status integer result.
 
 The default value should be `0` and `AvolittyRandomizer()` defines it as an integer with one of the following error codes.
-
-The variable `d` is a pointer passed to `AvolittyRandomizer()` to modify the value of `c`.
 
 - `0` Success
 - `1` Temporary directory name character length exceeds stack allocation
