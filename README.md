@@ -61,7 +61,7 @@ The default value should be `0` and `AvolittyRandomizer()` defines it as a rando
 
 The second argument variable `c` is a `signed char` defined as the level of randomness.
 
-The minimum value should be `2` and the maximum value should be `127`. 
+The minimum value is `2` and the maximum value is `127`.
 
 Increasing the minimum value increases entropy hashing strength and decreases process speed.
 
