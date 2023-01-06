@@ -2,9 +2,10 @@
 #include "../src/avolitty-randomizer.h"
 
 int main() {
-	signed short int a = 0;
-	signed short int *b = &a;
-	AvolittyRandomizer(b);
-	printf("%d", a);
+	signed char a = 2;
+	signed short int b = 0;
+	signed short int *c = &b;
+	AvolittyRandomizer(c, a);
+	printf("%d", b);
 	return 0;
 }

@@ -46,22 +46,29 @@ The following example uses code from [test/main.c](https://github.com/avolitty/a
 int main() {
 	signed short int a = 0;
 	signed short int *b = &a;
-	AvolittyRandomizer(b);
+	signed char c = 2;
+	AvolittyRandomizer(b, c);
 	printf("%d", a);
 	return 0;
 }
 ```
 
-The argument variable `b` is a pointer to modify the value of the variable `a`.
+The first argument variable `b` is a pointer to modify the value of the variable `a`.
 
 The variable `a` is a `signed short int` defined as the random integer result.
 
-`AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
+The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
+
+The second argument variable `c` is a `signed char` defined as the level of randomness.
+
+The minimum value should be `2` and the maximum value should be `127`. 
+
+Increasing the minimum value increases entropy hashing strength and decreases process speed.
 
 An executable binary for testing can be compiled with either `clang` or `gcc`.
 
 ``` console
-gcc -O3 -o avolitty-randomizer -pedantic-errors -std=c89 src/avolitty-randomizer.c test/main.c
+gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
 ```
 
 `-O3` compiles with maximum optimization and `-std=c89` compiles with C89 standards.
@@ -97,8 +104,9 @@ int main() {
 	signed short int *c = &b;
 	signed short int d = 0;
 	signed short int *e = &d;
-	AvolittyRandomizer(c);
-	AvolittyRandomizer(e);
+	signed char f = 2;
+	AvolittyRandomizer(c, f);
+	AvolittyRandomizer(e, f);
 	a = (signed long int) c * (signed long int) e;
 	printf("%ld", a);
 	return 0;
