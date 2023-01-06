@@ -1,7 +1,7 @@
 ## Avolitty Randomizer
 
 #### Author
-William Parsons <[avolitty@gmail.com](avolitty@gmail.com)>
+William Parsons <[avolitty.com](https://avolitty.com/)>
 
 #### Description
 Create random integers using C89 standard I/O with a fast and unique randomization algorithm.
@@ -19,7 +19,7 @@ Create random integers using C89 standard I/O with a fast and unique randomizati
 - Returns a random 2-bit signed short int
 
 #### Funding
-[Patreon](https://www.patreon.com/avolitty)
+[Avolitty](https://avolitty.com/donate/)
 
 #### License
 [MIT](https://github.com/avolitty/avolitty-randomizer/blob/main/LICENSE)

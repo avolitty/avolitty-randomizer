@@ -5,7 +5,7 @@ int main() {
 	signed short int a = 0;
 	signed short int *b = &a;
 	signed char c = 2;
-	AvolittyRandomizer(a, c);
+	AvolittyRandomizer(b, c);
 	printf("%d", a);
 	return 0;
 }
