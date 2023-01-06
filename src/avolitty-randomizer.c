@@ -5,10 +5,11 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 	signed short int d[8];
 	signed short int e = 0;
 	signed short int f = 0;
-	char *g = 0;
+	char *g;
 	char *h;
 
 	while (b-- != 0) {
+		g = 0;
 		h = tmpnam(g);
 		h[0] = 47;
 
