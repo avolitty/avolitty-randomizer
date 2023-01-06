@@ -1,53 +1,50 @@
 #include <stdio.h>
 
-void AvolittyRandomizer(signed short int *a, signed char *b) {
-	signed short int c[6];
-	signed short int d = 4107;
-	signed short int e = 0;
-	signed char f[4107];
-	char *g;
-	*b = 0;
-	d--;
-	f[d] = -1;
-	g = (char*) f;
-	tmpnam(g);
+void AvolittyRandomizer(signed short int *a) {
+	signed short int b[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+	signed short int c = 0;
+	signed short int d = 0;
+	char *e = 0;
+	char *f = tmpnam(e);
+	f[0] = 47;
 
-	if (f[d] != -1) {
-		*a = 0;
-		*b = 1;
-		return;
+	while (f[c] != 0) {
+		c++;
 	}
 
-	while (f[e] != 0) {
-		e++;
+	while (f[c--] != 47) {
+		b[d] = (b[d] + (signed short int) f[c]) & 8191;
+		d = d + 1 & 7;
 	}
 
-	d = 6;
-	e--;
+	c = 8;
 
-	while (d-- != 0) {
-		c[d] = (signed short int) f[e--];
+	while (c-- != 0) {
+		d = 8;
+
+		while (d-- != 0) {
+			b[c] = b[c] + b[d] & 16383;
+		}
 	}
 
-	d = ((c[0] & 3) * 10000) + (c[1] & 15) + (c[2] & 15);
-	e = 0;
+	c = ((b[0] & 3) * 10000) + (b[1] & 15) + (b[2] & 15);
 
-	if (d < 30000) {
-		d += ((c[1] & 2) + (c[0] & 7)) * 1000;
-		d += ((c[2] & 2) + (c[1] & 7)) * 100;
-		d += ((c[3] & 2) + (c[2] & 7)) * 10;
-		d += (c[4] & 2) + (c[3] & 7);
+	if (c < 30000) {
+		c += ((b[3] & 2) + (b[4] & 7)) * 1000;
+		c += ((b[4] & 2) + (b[5] & 7)) * 100;
+		c += ((b[5] & 2) + (b[6] & 7)) * 10;
+		c += (b[6] & 2) + (b[7] & 7);
 	} else {
-		d += (c[1] & 2) * 1000;
-		d += (c[2] & 7) * 100;
-		d += (c[3] & 3) * 10;
-		d += c[4] & 7;
+		c += (b[3] & 2) * 1000;
+		c += (b[4] & 7) * 100;
+		c += (b[5] & 3) * 10;
+		c += b[6] & 7;
 	}
 
-	if ((c[5] & 1) == 0) {
-		d = ~d;
+	if ((b[0] - c & 1) == 0) {
+		c = ~c;
 	}
 
-	*a = d;
+	*a = c;
 	return;
 }
