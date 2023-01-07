@@ -57,11 +57,11 @@ The first argument variable `b` is a pointer to modify the value of the variable
 
 The variable `a` is a `signed short int` defined as the random integer result.
 
-The default value should be `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
+The default value is `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
 
 The second argument variable `c` is a `signed char` defined as the level of randomness.
 
-The minimum value is `2` and the maximum value is `127`.
+The minimum value is `1` and the maximum value is `127`.
 
 Increasing the minimum value increases entropy hashing strength and decreases process speed.
 

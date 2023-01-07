@@ -27,6 +27,7 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 		f = 0;
 
 		while (e-- != 0) {
+			d[f] = c[e];
 			c[e] += c[f] + 2;
 			c[f] = (c[e] >> 1) + d[f] & 2047;
 			f++;
