@@ -4,7 +4,7 @@
 William Parsons <[avolitty.com](https://avolitty.com/)>
 
 #### Description
-Create random integers using C89 standard I/O with a fast and unique randomization algorithm.
+Create random integers using C89 standard I/O with a fast and unique randomizing algorithm.
 
 - Allocates memory with stack instead of heap
 - C89 compilation option -std=c89 supported up to c2x
