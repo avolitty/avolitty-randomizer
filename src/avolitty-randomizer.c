@@ -1,60 +1,59 @@
 #include <stdio.h>
 
 unsigned short int AvolittyRandomizer(unsigned char a) {
-	unsigned short int b;
-	signed short int c[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-	signed short int d[8];
-	signed short int e = 0;
-	signed short int f = 0;
+	unsigned short int b[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+	unsigned short int c[8];
+	unsigned short int d = 0;
+	unsigned short int e = 0;
+	char *f;
 	char *g;
-	char *h;
 
-	while (a-- != 0) {
-		g = 0;
-		h = tmpnam(g);
-		h[0] = 47;
+	while (a != 0) {
+		f = 0;
+		g = tmpnam(f);
+		g[0] = 47;
 
-		while (h[e] != 0) {
+		while (g[d] != 0) {
+			d++;
+		}
+
+		while (g[d] != 47) {
+			c[e] = b[e];
+			b[e] = (c[e] + ((unsigned short int) g[d--])) & 2047;
+			e = (e + 1) & 7;
+		}
+
+		d = 8;
+		e = 0;
+
+		while (d != 0) {
+			d--;
+			b[d] += b[e] + 2;
+			b[e] = ((b[d] >> 1) + c[e]) & 2047;
 			e++;
 		}
 
-		while (h[e--] != 47) {
-			d[f] = c[f];
-			c[f] = (d[f] + ((signed short int) h[e])) & 2047;
-			f = (f + 1) & 7;
-		}
-
-		e = 8;
-		f = 0;
-
-		while (e-- != 0) {
-			c[e] += c[f] + 2;
-			c[f] = ((c[e] >> 1) + d[f]) & 2047;
-			f++;
-		}
-
-		f = 0;
+		a--;
+		e = 0;
 	}
 
-	e = (((c[0] + d[2] + c[4]) & 3) * 10000) + ((c[1] + c[3] + c[5]) & 15) + ((d[2] + c[4] + d[6]) & 15);
+	d = (((b[0] + c[2] + b[4]) & 3) * 10000) + ((b[1] + b[3] + b[5]) & 15) + ((c[2] + b[4] + c[6]) & 15);
 
-	if (e < 30000) {
-		e += ((c[0] & 1) + (c[1] + d[1] & 1) + (c[2] & 7)) * 1000;
-		e += (((c[3] + d[3]) & 1) + (c[4] & 1) + ((c[5] + d[5]) & 7)) * 100;
-		e += ((c[6] & 1) + (d[0] & 1) + (c[1] & 7)) * 10;
-		e += ((c[2] + d[2]) & 1) + (c[5] & 1) + ((c[2] + d[3]) & 7);
+	if (d < 30000) {
+		d += ((b[0] & 1) + (b[1] + c[1] & 1) + (b[2] & 7)) * 1000;
+		d += (((b[3] + c[3]) & 1) + (b[4] & 1) + ((b[5] + c[5]) & 7)) * 100;
+		d += ((b[6] & 1) + (c[0] & 1) + (b[1] & 7)) * 10;
+		d += ((b[2] + c[2]) & 1) + (b[5] & 1) + ((b[2] + c[3]) & 7);
 	} else {
-		e += ((c[0] & 1) + ((c[1] + d[1]) & 1)) * 1000;
-		e += (c[2] & 7) * 100;
-		e += ((c[3] + d[3]) & 3) * 10;
-		e += c[4] & 7;
+		d += ((b[0] & 1) + ((b[1] + c[1]) & 1)) * 1000;
+		d += (b[2] & 7) * 100;
+		d += ((b[3] + c[3]) & 3) * 10;
+		d += b[4] & 7;
 	}
 
-	b = (unsigned short int) e;
-
-	if (((c[0] + d[0]) & 1) == 0) {
-		b += 32768;
+	if (((b[6] + c[4]) & 1) == 0) {
+		d += 32768;
 	}
 
-	return b;
+	return d;
 }
