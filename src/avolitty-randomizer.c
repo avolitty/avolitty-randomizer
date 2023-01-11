@@ -19,7 +19,7 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 
 		while (h[e--] != 47) {
 			d[f] = c[f];
-			c[f] = (d[f] + (signed short int) h[e]) & 2047;
+			c[f] = (d[f] + ((signed short int) h[e])) & 2047;
 			f = (f + 1) & 7;
 		}
 
@@ -39,7 +39,7 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 
 	if (e < 30000) {
 		e += ((c[0] & 1) + (c[1] + d[1] & 1) + (c[2] & 7)) * 1000;
-		e += ((c[3] + d[3] & 1) + (c[4] & 1) + (c[5] + d[5] & 7)) * 100;
+		e += (((c[3] + d[3]) & 1) + (c[4] & 1) + ((c[5] + d[5]) & 7)) * 100;
 		e += ((c[6] & 1) + (d[0] & 1) + (c[1] & 7)) * 10;
 		e += ((c[2] + d[2]) & 1) + (c[5] & 1) + ((c[2] + d[3]) & 7);
 	} else {
