@@ -16,7 +16,7 @@ Create random integers using C89 standard I/O with a fast and unique randomizing
 - Minified code
 - No implementation-dependent noise seeding required
 - No timestamp seeding required
-- Returns a random 2-bit signed short int
+- Returns a random 2-bit unsigned short int
 
 #### Funding
 [Avolitty](https://avolitty.com/donate/)
@@ -43,27 +43,23 @@ The following example uses code from [test/main.c](https://github.com/avolitty/a
 #include <stdio.h>
 #include "../src/avolitty-randomizer.h"
 
-int main() {
-	signed short int a = 0;
-	signed short int *b = &a;
-	signed char c = 2;
-	AvolittyRandomizer(b, c);
-	printf("%d", a);
-	return 0;
+int main(void) {
+	int a = 0;
+	unsigned short int b;
+	unsigned char c = 2;
+	b = AvolittyRandomizer(c);
+	printf("%u", b);
+	return a;
 }
 ```
 
-The first argument variable `b` is a pointer to modify the value of the variable `a`.
+The return value variable `b` is an `unsigned short int` and `AvolittyRandomizer()` defines it as a random integer result between `0` and `65535`.
 
-The variable `a` is a `signed short int` defined as the random integer result.
+The argument variable `c` is an `unsigned char` defined as the level of randomness.
 
-The default value is `0` and `AvolittyRandomizer()` defines it as a random integer between `-32768` and `32767`.
+The minimum value is `1`.
 
-The second argument variable `c` is a `signed char` defined as the level of randomness.
-
-The minimum value is `1` and the maximum value is `127`.
-
-Increasing the minimum value increases entropy hashing strength and decreases process speed.
+Increasing the minimum value increases entropy and decreases process speed.
 
 An executable binary for testing can be compiled with either `clang` or `gcc`.
 
@@ -80,35 +76,12 @@ The compiler gives a warning that the use of `tmpnam()` is dangerous. Here are d
 
 It outputs an executable binary file named `avolitty-randomizer` in the current directory.
 
-The output from executing `./avolitty-randomizer` is a random integer between `-32768` and `32767`.
+The output from executing `./avolitty-randomizer` is a random integer between `0` and `65535`.
 
 ``` console
 ./avolitty-randomizer
 # 1338
 
 ./avolitty-randomizer
-# -8080
-```
-
-Random integers smaller or larger than `-32768` can be created with memory-safe casting and arithmetic expressions for restriction to a desired number range.
-
-The following example modifies code from [test/main.c](https://github.com/avolitty/avolitty-randomizer/blob/main/test/main.c) to create a random `signed long int` by multiplying and casting two output values from `AvolittyRandomizer()`.
-
-``` c
-#include <stdio.h>
-#include "../src/avolitty-randomizer.h"
-
-int main() {
-	signed long int a = 0L;
-	signed short int b = 0;
-	signed short int *c = &b;
-	signed short int d = 0;
-	signed short int *e = &d;
-	signed char f = 2;
-	AvolittyRandomizer(c, f);
-	AvolittyRandomizer(e, f);
-	a = (signed long int) c * (signed long int) e;
-	printf("%ld", a);
-	return 0;
-}
+# 8080
 ```

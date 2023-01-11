@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-void AvolittyRandomizer(signed short int *a, signed char b) {
+unsigned short int AvolittyRandomizer(unsigned char a) {
+	unsigned short int b;
 	signed short int c[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 	signed short int d[8];
 	signed short int e = 0;
@@ -8,7 +9,7 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 	char *g;
 	char *h;
 
-	while (b-- != 0) {
+	while (a-- != 0) {
 		g = 0;
 		h = tmpnam(g);
 		h[0] = 47;
@@ -49,10 +50,11 @@ void AvolittyRandomizer(signed short int *a, signed char b) {
 		e += c[4] & 7;
 	}
 
+	b = (unsigned short int) e;
+
 	if (((c[0] + d[0]) & 1) == 0) {
-		e = ~e;
+		b += 32768;
 	}
 
-	*a = e;
-	return;
+	return b;
 }
