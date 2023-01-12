@@ -3,8 +3,8 @@
 
 int main(void) {
 	int a = 0;
-	unsigned short int b = 0;
-	unsigned char c = 2;
+	unsigned short int b = 0U;
+	unsigned char c = 1U;
 	b = AvolittyRandomizer(c);
 	printf("%u", b);
 	return a;

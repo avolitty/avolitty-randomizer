@@ -46,18 +46,18 @@ The following example uses code from [test/main.c](https://github.com/avolitty/a
 int main(void) {
 	int a = 0;
 	unsigned short int b;
-	unsigned char c = 2;
+	unsigned char c = 1U;
 	b = AvolittyRandomizer(c);
 	printf("%u", b);
 	return a;
 }
 ```
 
-The return value variable `b` is an `unsigned short int` and `AvolittyRandomizer()` defines it as a random integer result between `0` and `65535`.
+The return value variable `b` is an `unsigned short int` and `AvolittyRandomizer()` defines it as a random integer result between `0U` and `65535U`.
 
 The argument variable `c` is an `unsigned char` defined as the level of randomness.
 
-The minimum value is `1`.
+The minimum value is `1U`.
 
 Increasing the minimum value increases entropy and decreases process speed.
 
