@@ -19,6 +19,12 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 
 		while (g[d] != 47) {
 			c[e] = b[e];
+
+			if (g[d] & 255 != g[d]) {
+				c[e] += 127;
+				g[d] *= -1;
+			}
+
 			b[e] = (c[e] + ((unsigned short int) g[d--])) & 2047;
 			e = (e + 1) & 7;
 		}
