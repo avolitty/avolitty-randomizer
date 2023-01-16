@@ -25,8 +25,8 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 				g[d] *= -1;
 			}
 
-			b[e] = (c[e] + ((unsigned short int) g[d--])) & 2047U;
-			e = (e + 1U) & 7U;
+			b[e] = ((c[e] + ((unsigned short int) g[d--])) & 2047U);
+			e = ((e + 1U) & 7U);
 		}
 
 		d = 8U;
@@ -34,8 +34,8 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 
 		while (d != 0U) {
 			d--;
-			b[d] += b[e] + 2U;
-			b[e] = ((b[d] >> 1U) + c[e]) & 2047U;
+			b[d] += (b[e] + 2U);
+			b[e] = (((b[d] >> 1U) + c[e]) & 2047U);
 			e++;
 		}
 
@@ -43,18 +43,18 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 		e = 0U;
 	}
 
-	d = (((b[0U] + c[2U] + b[4U]) & 3U) * 10000U) + ((b[1U] + b[3U] + b[5U]) & 15U) + ((c[2U] + b[4U] + c[6U]) & 15U);
+	d = ((((b[0U] + c[2U] + b[4U]) & 3U) * 10000U) + ((b[1U] + b[3U] + b[5U]) & 15U) + ((c[2U] + b[4U] + c[6U]) & 15U));
 
 	if (d < 30000U) {
-		d += ((b[0U] & 1U) + (b[1U] + c[1U] & 1U) + (b[2U] & 7U)) * 1000U;
-		d += (((b[3U] + c[3U]) & 1U) + (b[4U] & 1U) + ((b[5U] + c[5U]) & 7U)) * 100U;
-		d += ((b[6U] & 1U) + (c[0U] & 1U) + (b[1U] & 7U)) * 10U;
-		d += ((b[2U] + c[2U]) & 1U) + (b[5U] & 1U) + ((b[2U] + c[3U]) & 7U);
+		d += (((b[0U] & 1U) + ((b[1U] + c[1U]) & 1U) + (b[2U] & 7U)) * 1000U);
+		d += ((((b[3U] + c[3U]) & 1U) + (b[4U] & 1U) + ((b[5U] + c[5U]) & 7U)) * 100U);
+		d += (((b[6U] & 1U) + (c[0U] & 1U) + (b[1U] & 7U)) * 10U);
+		d += (((b[2U] + c[2U]) & 1U) + (b[5U] & 1U) + ((b[2U] + c[3U]) & 7U));
 	} else {
-		d += ((b[0U] & 1U) + ((b[1U] + c[1U]) & 1U)) * 1000U;
-		d += (b[2U] & 7U) * 100U;
-		d += ((b[3U] + c[3U]) & 3U) * 10U;
-		d += b[4U] & 7U;
+		d += (((b[0U] & 1U) + ((b[1U] + c[1U]) & 1U)) * 1000U);
+		d += ((b[2U] & 7U) * 100U);
+		d += (((b[3U] + c[3U]) & 3U) * 10U);
+		d += (b[4U] & 7U);
 	}
 
 	if (((b[6U] + c[4U]) & 1U) == 0U) {
