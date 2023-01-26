@@ -6,12 +6,12 @@ William Parsons <[avolitty.com](https://avolitty.com/)>
 #### Description
 Create random integers using C89 standard I/O with a fast and unique randomizing algorithm.
 
-- Allocates memory with stack instead of heap
-- C89 compilation option -std=c89 supported up to c2x
+- Allocates static memory with stack instead of heap
 - Compiles with Clang or GCC
+- Compiles with forward-compatible C89 option -std=c89 and C++ option -stdc++98
 - Conforms to strict ISO C with -pedantic-errors enabled
 - Entropy derived from portable tmpnam() function in stdio.h
-- Fast randomization speed with optimization level 3
+- Fast randomization speed without compiler optimization
 - Memory-safe with well-defined behavior
 - Minified code
 - No implementation-dependent noise seeding required
@@ -44,18 +44,18 @@ The following example uses code from [test/main.c](https://github.com/avolitty/a
 #include "../src/avolitty-randomizer.h"
 
 int main(void) {
-	int a = 0;
-	unsigned short int b;
-	unsigned char c = 1U;
-	b = AvolittyRandomizer(c);
-	printf("%u", b);
-	return a;
+	unsigned short int a;
+	unsigned char b;
+	b = ((unsigned char) 1U);
+	a = AvolittyRandomizer(b);
+	printf("%u", a);
+	return (int) a;
 }
 ```
 
-The return value variable `b` is an `unsigned short int` and `AvolittyRandomizer()` defines it as a random integer result between `0U` and `65535U`.
+The return value variable `a` is an `unsigned short int` and `AvolittyRandomizer()` defines it as a random integer result between `0U` and `65535U`.
 
-The argument variable `c` is an `unsigned char` defined as the level of randomness.
+The argument variable `b` is an `unsigned char` defined as the level of randomness.
 
 The minimum value is `1U`.
 
@@ -64,10 +64,10 @@ Increasing the minimum value increases entropy and decreases process speed.
 An executable binary for testing can be compiled with either `clang` or `gcc`.
 
 ``` console
-gcc -O3 -o avolitty-randomizer -std=c89 src/avolitty-randomizer.c test/main.c
+gcc -o avolitty-randomizer -pedantic-errors -std=c89 src/avolitty-randomizer.c test/main.c
 ```
 
-`-O3` compiles with maximum optimization and `-std=c89` compiles with C89 standards.
+`-pedantic-errors` compiles with strict ISO C standards and `-std=c89` compiles with forward-compatible C89 standards.
 
 The compiler gives a warning that the use of `tmpnam()` is dangerous. Here are detailed explanations on why it's safe to use in this case.
 

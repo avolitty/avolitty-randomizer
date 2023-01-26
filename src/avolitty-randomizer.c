@@ -1,46 +1,65 @@
 #include <stdio.h>
 
 unsigned short int AvolittyRandomizer(unsigned char a) {
-	unsigned short int b[8U] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U};
-	unsigned short int c[8U];
-	unsigned short int d = 0U;
-	unsigned short int e = 0U;
-	char *f;
-	char *g;
+	unsigned short int b[((unsigned short int) 8U)];
+	unsigned short int c[((unsigned short int) 8U)];
+	unsigned short int d;
+	unsigned short int e;
+	unsigned short int f;
+	unsigned short int g;
+	char h;
+	char i;
+	char *j;
+	char *k;
+	unsigned char l;
+	d = ((unsigned short int) 2047U);
+	e = ((unsigned short int) 127U);
+	f = ((unsigned short int) 0U);
+	g = ((unsigned short int) 0U);
+	h = ((char) 0);
+	i = ((char) 0);
+	l = ((unsigned char) 0U);
 
-	while (a != 0) {
-		f = 0;
-		g = tmpnam(f);
-		g[0U] = 47;
+	while (a != l) {
+		j = ((char) 0);
+		k = tmpnam(j);
+		k[((unsigned short int) 0U)] = ((char) 47);
 
-		while (g[d] != 0) {
-			d++;
+		while (h != k[g]) {
+			b[(g & ((unsigned short int) 7U))] = ((unsigned short int) 0U);
+			g++;
 		}
 
-		while (g[d] != 47) {
-			c[e] = b[e];
+		h = ((char) 47);
 
-			if (g[d] < 0) {
-				c[e] += 127U;
-				g[d] *= -1;
+		while (h != k[g]) {
+			c[f] = b[f];
+
+			if (i > k[g]) {
+				c[f] += e;
+				i--;
+				k[g] *= i;
+				i++;
 			}
 
-			b[e] = ((c[e] + ((unsigned short int) g[d--])) & 2047U);
-			e = ((e + 1U) & 7U);
+			b[f] = ((c[f] + ((unsigned short int) k[g])) & d);
+			f++;
+			f &= 7U;
+			g--;
 		}
 
-		d = 8U;
-		e = 0U;
+		f = ((unsigned short int) 8U);
+		g = 0U;
 
-		while (d != 0U) {
-			d--;
-			b[d] += (b[e] + 2U);
-			b[e] = (((b[d] >> 1U) + c[e]) & 2047U);
-			e++;
+		while (f != 0U) {
+			f--;
+			b[f] += (b[g] + 2U);
+			b[g] = (((b[f] >> 1U) + c[g]) & d);
+			g++;
 		}
 
 		a--;
-		e = 0U;
+		g = 0U;
 	}
 
 	d = ((((b[0U] + c[2U] + b[4U]) & 3U) * 10000U) + ((b[1U] + b[3U] + b[5U]) & 15U) + ((c[2U] + b[4U] + c[6U]) & 15U));
