@@ -11,84 +11,94 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 	unsigned short int i;
 	unsigned short int j;
 	unsigned short int k;
-	char l;
-	char m;
+	unsigned short int l;
+	unsigned short int m;
 	char n;
-	char *o;
-	char *p;
-	unsigned char q;
+	char o;
+	char p;
+	char *q;
+	char *r;
+	char *s;
+	unsigned char t;
 	d = ((unsigned short int) 2047U);
 	e = ((unsigned short int) 127U);
-	f = ((unsigned short int) 7U);
-	g = ((unsigned short int) 2U);
-	h = ((unsigned short int) 1U);
-	i = ((unsigned short int) 0U);
-	j = ((unsigned short int) 0U);
+	f = ((unsigned short int) 15U);
+	g = ((unsigned short int) 7U);
+	h = ((unsigned short int) 6U);
+	i = ((unsigned short int) 2U);
+	j = ((unsigned short int) 1U);
 	k = ((unsigned short int) 0U);
-	l = ((char) 47);
-	m = ((char) 0);
-	n = ((char) 0);
-	q = ((unsigned char) 0U);
+	l = ((unsigned short int) 0U);
+	m = ((unsigned short int) 0U);
+	n = ((char) 47);
+	o = ((char) 0);
+	p = ((char) 0);
+	q = ((char) 0);
+	t = ((unsigned char) 0U);
 
-	while (a != q) {
-		o = ((char) 0);
-		p = tmpnam(o);
-		p[f] = l;
+	while (a != t) {
+		r = q;
+		s = tmpnam(r);
+		s[g] = n;
 
-		while (m != p[j]) {
-			k = (j & f);
-			b[k] = j++;
+		while (o != s[l]) {
+			m = (l & g);
+			b[m] = l++;
 		}
 
-		k = i;
-		m = l;
+		m = k;
+		o = n;
 
-		while (m != p[j]) {
-			c[f] = b[k];
+		while (o != s[l]) {
+			c[g] = b[m];
 
-			if (n > p[j]) {
-				c[k] += e;
-				n--;
-				p[j] *= n++;
+			if (p > s[l]) {
+				c[m] += e;
+				p--;
+				s[l] *= p++;
 			}
 
-			b[k] = (c[k] + ((unsigned short int) p[j]));
-			b[k++] &= d;
-			k &= f;
-			j--;
+			b[m] = ((c[m] + ((unsigned short int) s[l])) & d);
+			m++;
+			m &= g;
+			l--;
 		}
 
-		f++;
-		j = f--;
-		k = i;
+		g++;
+		l = g--;
+		m = k;
 
-		while (i != j) {
-			j--;
-			b[j] += (b[k] + g);
-			b[k] = ((b[j] >> h) + c[k]);
-			b[k++] &= d;
+		while (k != l) {
+			l--;
+			b[l] += (b[m] + i);
+			b[m] = ((b[l] >> j) + c[m]);
+			b[m] &= d;
+			m++;
 		}
 
 		a--;
-		k = i;
+		m = k;
 	}
 
-	d = ((((b[0U] + c[2U] + b[4U]) & 3U) * 10000U) + ((b[1U] + b[3U] + b[5U]) & 15U) + ((c[2U] + b[4U] + c[6U]) & 15U));
+	e = ((signed short int) 5U);
+	l = ((signed short int) 4U);
+	m = ((signed short int) 3U);
+	d = (((((b[k] + c[i]) + b[l]) & m) * 10000U) + (((b[j] + b[m]) + b[e]) & f) + (((c[i] + b[l]) + c[h]) & f));
 
-	if (d < 30000U) {
-		d += (((b[0U] & 1U) + ((b[1U] + c[1U]) & 1U) + (b[2U] & 7U)) * 1000U);
-		d += ((((b[3U] + c[3U]) & 1U) + (b[4U] & 1U) + ((b[5U] + c[5U]) & 7U)) * 100U);
-		d += (((b[6U] & 1U) + (c[0U] & 1U) + (b[1U] & 7U)) * 10U);
-		d += (((b[2U] + c[2U]) & 1U) + (b[5U] & 1U) + ((b[2U] + c[3U]) & 7U));
+	if (d < ((unsigned short int) 30000U)) {
+		d += ((((b[k] & j) + ((b[j] + c[j]) & j)) + (b[i] & g)) * ((unsigned short int) 1000U));
+		d += (((((b[m] + c[m]) & j) + (b[l] & j)) + ((b[e] + c[e]) & g)) * ((unsigned short int) 100U));
+		d += ((((b[h] & j) + (c[k] & j)) + (b[j] & g)) * ((unsigned short int) 10U));
+		d += ((((b[i] + c[i]) & j) + (b[e] & j)) + ((b[i] + c[m]) & g));
 	} else {
-		d += (((b[0U] & 1U) + ((b[1U] + c[1U]) & 1U)) * 1000U);
-		d += ((b[2U] & 7U) * 100U);
-		d += (((b[3U] + c[3U]) & 3U) * 10U);
-		d += (b[4U] & 7U);
+		d += (((b[k] & j) + ((b[j] + c[j]) & j)) * ((unsigned short int) 1000U));
+		d += ((b[i] & g) * ((unsigned short int) 100U));
+		d += (((b[m] + c[m]) & m) * ((unsigned short int) 10U));
+		d += (b[l] & g);
 	}
 
-	if (((b[6U] + c[4U]) & 1U) == 0U) {
-		d += 32768U;
+	if (((b[h] + c[l]) & j) == k) {
+		d += ((unsigned short int) 32768U);
 	}
 
 	return d;
