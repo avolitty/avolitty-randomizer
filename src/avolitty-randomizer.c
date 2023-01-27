@@ -83,7 +83,7 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 	e = ((signed short int) 5U);
 	l = ((signed short int) 4U);
 	m = ((signed short int) 3U);
-	d = (((((b[k] + c[i]) + b[l]) & m) * 10000U) + (((b[j] + b[m]) + b[e]) & f) + (((c[i] + b[l]) + c[h]) & f));
+	d = (((((b[k] + c[i]) + b[l]) & m) * ((unsigned short int) 10000U)) + (((b[j] + b[m]) + b[e]) & f) + (((c[i] + b[l]) + c[h]) & f));
 
 	if (d < ((unsigned short int) 30000U)) {
 		d += ((((b[k] & j) + ((b[j] + c[j]) & j)) + (b[i] & g)) * ((unsigned short int) 1000U));
