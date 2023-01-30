@@ -16,8 +16,8 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 	char n;
 	char o;
 	char p;
-	char *q;
-	char *r;
+	char * q;
+	char * r;
 	unsigned char s;
 	d = ((unsigned short int) 2047U);
 	e = ((unsigned short int) 127U);
