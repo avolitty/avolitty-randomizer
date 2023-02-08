@@ -32,7 +32,7 @@ unsigned short int AvolittyRandomizer(unsigned char a) {
 	n = ((char) 47);
 	o = ((char) 0);
 	p = ((char) 0);
-	q = ((char *) 0);
+	q = ((void *) 0);
 	s = ((unsigned char) 0U);
 
 	while (a != s) {
